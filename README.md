@@ -1,0 +1,13 @@
+# HITO 1 - PLANIFICACIÓN DE TAREAS
+
+INTEGRANTES:
+- M. TRINIDAD RIBAO
+- BALTAZAR CAMPINO
+- DOMINGO CAMPINO
+
+## COMO EJECUTAR
+
+1. CREAR VIRTUAL ENVIRONMENT: `python -m venv .venv`
+2. ACTIVAR: `source .venv/bin/activate`
+3. INSTALAR DEPENDENCIAS: `pip install -r reqirements.txt`
+4. EJECUTAR: `python main.py <makesoan_objetivo>`
