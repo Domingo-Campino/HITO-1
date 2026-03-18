@@ -10,4 +10,4 @@ INTEGRANTES:
 1. CREAR VIRTUAL ENVIRONMENT: `python -m venv .venv`
 2. ACTIVAR: `source .venv/bin/activate`
 3. INSTALAR DEPENDENCIAS: `pip install -r reqirements.txt`
-4. EJECUTAR: `python main.py <makesoan_objetivo>`
+4. EJECUTAR: `python main.py <makespan_objetivo>`
