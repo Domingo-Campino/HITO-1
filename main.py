@@ -86,3 +86,38 @@ def planificar_ep(tareas, recursos):
         tiempo_recursos[mejor_recurso] = tiempo_fin
 
     return cronograma
+
+# 4. Generar archivo OUTPUT.TXT
+def generar_output(cronograma, ruta_archivo="output.txt"):
+    with open(ruta_archivo, 'w', encoding='utf-8') as f:
+        for asig in cronograma:
+            f.write(f"{asig['tarea']}, {asig['recurso']}, {asig['inicio']}, {asig['fin']}\n")
+
+# 5. BLOQUE PRINCIPAL
+
+
+def main():
+    # 1. Capturamos el 'makespan_objetivo' que pide el enunciado
+    if len(sys.argv) > 1:
+        makespan_objetivo = sys.argv[1]
+        print(f"El profesor pide un makespan objetivo de: {makespan_objetivo}")
+
+    # 2. Chequeo de archivos: buscamos en ´docs/´ o en la raíz
+    archivo_tareas = 'docs/tareas.txt' if os.path.exists('docs/tareas.txt') else 'tareas.txt'
+    archivo_recursos = 'docs/recursos.txt' if os.path.exists('docs/recursos.txt') else 'recursos.txt'
+
+    # 3. Leer y procesar
+    tareas = leer_tareas(archivo_tareas)
+    recursos = leer_recursos(archivo_recursos)
+    cronograma = planificar_ep(tareas, recursos)
+
+    # 4. Calculo del makespan obtenido para mostrarlo en el terminal
+    if cronograma:
+        makespan_obtenido = max(asig['fin'] for asig in cronograma)
+        print(f"¡Éxito! El makespan obtenido por tu algoritmo es: {makespan_obtenido}")
+
+    # 5. Generar el archivo final en la raíz
+    generar_output(cronograma, ruta_archivo="output.txt")
+
+if __name__ == "__main__":
+    main()
